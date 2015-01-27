@@ -1,0 +1,33 @@
+<apex:page showHeader="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" standardStylesheets="false">
+	<apex:remoteObjects>
+		<apex:remoteObjectModel name="Account" jsShorthand="AccountEntity" fields="Id, Name, Phone, Fax, Website">
+		</apex:remoteObjectModel>
+	</apex:remoteObjects>
+
+	<link href="{!URLFOR($Resource.remoteObjects, 'js/vendor/jquery/jquery.mobile-1.4.2.min.css')}" rel="stylesheet" />
+ 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"/>	
+
+    <script src="{!URLFOR($Resource.remoteObjects, 'js/vendor/jquery/jquery-2.1.1.min.js')}"></script>    
+	<body ng-app="angularApp" ng-controller="InitController">	
+		<script type="text/javascript">
+	    	var userId = "{!$User.Id}";	   
+	    	var labels = {label1: '{!$Label.remoteTest}'}; 	
+	    </script>	
+		<div class="container">			
+			<div ng-view="ng-view">
+			</div>
+		</div>		
+	</body>
+	
+	<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"/>
+    <script src="{!URLFOR($Resource.remoteObjects, 'js/vendor/angular-route.js')}"></script>
+    <script src="{!URLFOR($Resource.remoteObjects, 'js/custom/app.js')}"></script>    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script src="{!URLFOR($Resource.remoteObjects, 'js/custom/models/AccountModel.js')}"></script>
+	<script src="{!URLFOR($Resource.remoteObjects, 'js/custom/controllers/AccountHomeController.js')}"></script>
+	<script src="{!URLFOR($Resource.remoteObjects, 'js/custom/controllers/AccountEditController.js')}"></script>
+	<script src="{!URLFOR($Resource.remoteObjects, 'js/custom/controllers/AccountDetailController.js')}"></script>
+	<script src="{!URLFOR($Resource.remoteObjects, 'js/custom/controllers/AccountCreateController.js')}"></script>
+	<script src="{!URLFOR($Resource.remoteObjects, 'js/custom/controllers/InitController.js')}"></script>	
+</apex:page>
